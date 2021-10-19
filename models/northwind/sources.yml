@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+    - name: northwind_etl
+      tables: 
+        - name: orders
+        - name: customers
+          description: Essa é a tabela de clientes
+          columns:
+            - name: customer_id
+              description: id do cliente
+              tests:
+                - unique
+                - not_null
