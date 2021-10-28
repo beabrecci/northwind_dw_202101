@@ -20,3 +20,19 @@ sources:
               tests:
                 - unique
                 - not_null
+        - name: shippers
+          description: Essa é a tabela de transportadores
+          columns:
+            - name: shipper_id
+              description: id da transporadora
+              tests:
+                - unique
+                - not_null
+        - name: suppliers
+          description: Essa é a tabela de fornecedores
+          columns:
+            - name: supplier_id
+              description: id do forncedor
+              tests:
+                - unique
+                - not_null

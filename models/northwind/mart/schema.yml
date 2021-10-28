@@ -28,3 +28,21 @@ models:
             tests:
                 - unique
                 - not_null
+
+    - name: dim_shippers
+      description: "Dimensao Shippers"
+      columns:
+          - name: shipper_id
+            description: "Chave primaria original da tabela"
+            tests:
+                - unique
+                - not_null
+
+    - name: dim_suppliers
+      description: "Dimensao Suppliers"
+      columns:
+          - name: supplier_id
+            description: "Chave primaria original da tabela"
+            tests:
+                - unique
+                - not_null
