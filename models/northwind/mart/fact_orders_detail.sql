@@ -64,12 +64,11 @@ with
 
         order_details as (
         select
-        employee_id
-        ,order_id
-        ,first_name
-        ,title
-        ,title_of_courtesy
-        ,reports_to
+        product_id
+        ,discount	
+        ,unit_price
+        ,quantity
+        ,order_id	
         from {{ ref('stg_order_details') }}
     )
 
