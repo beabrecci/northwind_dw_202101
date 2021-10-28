@@ -72,7 +72,7 @@ with
         ,title_of_courtesy
         ,reports_to
         from {{ ref('stg_order_details') }}
-    ),
+    )
 
     
 

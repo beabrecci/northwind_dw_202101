@@ -60,7 +60,7 @@ with
         ,title_of_courtesy
         ,reports_to
         from {{ ref('dim_employees') }}
-    ),
+    )
 
 , orders_with_sk as (
     select
