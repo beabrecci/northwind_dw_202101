@@ -51,7 +51,7 @@ with
         from {{ ref('dim_suppliers') }}
     ),
 
-         employees as (
+        employees as (
         select
         employees_sk
         ,employee_id
@@ -61,6 +61,20 @@ with
         ,reports_to
         from {{ ref('dim_employees') }}
     ),
+
+        order_details as (
+        select
+        employees_sk
+        ,employee_id
+        ,order_id
+        ,first_name
+        ,title
+        ,title_of_courtesy
+        ,reports_to
+        from {{ ref('stg_order_details') }}
+    ),
+
+    
 
 , orders_with_sk as (
     select
@@ -88,6 +102,7 @@ with
     left join shippers shippers on orders.shipper_id = shippers.shipper_id
     left join suppliers suppliers on orders.supplier_id = suppliers.supplier_id
     left join employees employees on orders.employee_id = employees.employee_id
+    left join order_details order_details on orders.order_id = order_details.order_id
 
 )
 
