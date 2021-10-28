@@ -51,7 +51,7 @@ with
         from {{ ref('dim_suppliers') }}
     ),
 
-         employees as (
+        employees as (
         select
         employee_sk
         ,employee_id
@@ -60,13 +60,27 @@ with
         ,title_of_courtesy
         ,reports_to
         from {{ ref('dim_employees') }}
+    ),
+
+        order_details as (
+        select
+        product_id
+        ,discount	
+        ,unit_price
+        ,quantity
+        ,order_id	
+        from {{ ref('stg_order_details') }}
     )
+
+    
 
 , orders_with_sk as (
     select
             orders.order_id
             , customers.customer_id
             , employees.employee_id
+            , products.product_id
+            , suppliers.supplier_id
             , orders.order_date 
             , orders.ship_region 
             , orders.shipped_date
@@ -79,12 +93,17 @@ with
             , shippers.shipper_id
             --, ship_via as shipper_id
             , orders.required_date
+            , order_details.discount	
+            , order_details.unit_price
+            , order_details.quantity
 
     from {{ref('stg_orders')}} orders
     left join customers customers on orders.customer_id = customers.customer_id
     left join shippers shippers on orders.shipper_id = shippers.shipper_id
     left join employees employees on orders.employee_id = employees.employee_id
-
+    left join order_details order_details on orders.order_id = order_details.order_id
+    left join products products on order_details.product_id = products.product_id
+    left join suppliers suppliers on products.supplier_id = suppliers.supplier_id
 
 )
 

@@ -46,3 +46,21 @@ models:
             tests:
                 - unique
                 - not_null
+
+    - name: dim_employees
+      description: "Dimensao Employees"
+      columns:
+          - name: employee_id
+            description: "Chave primaria original da tabela"
+            tests:
+                - unique
+                - not_null
+
+    - name: fact_orders_details
+      description: "Nossa tabela de fatos detalhada"
+      columns:
+          - name: order_id
+            description: "Chave primaria original da tabela"
+            tests:
+                - unique
+                - not_null

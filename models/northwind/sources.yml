@@ -36,3 +36,19 @@ sources:
               tests:
                 - unique
                 - not_null
+        - name: employees
+          description: Essa é a tabela de funcionarios
+          columns:
+            - name: employee_id
+              description: id do funcionario
+              tests:
+                - unique
+                - not_null
+        - name: order_details
+          description: Essa é a tabela de detalhes do pedido
+          columns:
+            - name: product_id
+              description: id do funcionario
+              tests:
+                - unique
+                - not_null
