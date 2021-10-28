@@ -96,7 +96,6 @@ with
             , order_details.discount	
             , order_details.unit_price
             , order_details.quantity
-            , order_details.order_id
 
     from {{ref('stg_orders')}} orders
     left join customers customers on orders.customer_id = customers.customer_id
