@@ -12,3 +12,11 @@ sources:
               tests:
                 - unique
                 - not_null
+        - name: products
+          description: Essa é a tabela de produtos
+          columns:
+            - name: product_id
+              description: id do produto
+              tests:
+                - unique
+                - not_null
