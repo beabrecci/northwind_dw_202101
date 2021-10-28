@@ -95,14 +95,18 @@ with
             , shippers.shipper_id
             --, ship_via as shipper_id
             , orders.required_date
+            , order_details.discount	
+            , order_details.unit_price
+            , order_details.quantity
+            , order_details.order_id
 
     from {{ref('stg_orders')}} orders
     left join customers customers on orders.customer_id = customers.customer_id
-    left join products products on orders.order_id = products.order_id
     left join shippers shippers on orders.shipper_id = shippers.shipper_id
     left join suppliers suppliers on orders.supplier_id = suppliers.supplier_id
     left join employees employees on orders.employee_id = employees.employee_id
     left join order_details order_details on orders.order_id = order_details.order_id
+    left join products products on order_details.order_id = products.order_id
 
 )
 

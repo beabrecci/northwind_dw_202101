@@ -67,7 +67,6 @@ with
             orders.order_id
             , customers.customer_id
             , employees.employee_id
-            , products.product_id
             , suppliers.supplier_id
             , orders.order_date 
             , orders.ship_region 
@@ -84,10 +83,10 @@ with
 
     from {{ref('stg_orders')}} orders
     left join customers customers on orders.customer_id = customers.customer_id
-    left join products products on orders.order_id = products.order_id
     left join shippers shippers on orders.shipper_id = shippers.shipper_id
     left join suppliers suppliers on orders.supplier_id = suppliers.supplier_id
     left join employees employees on orders.employee_id = employees.employee_id
+
 
 )
 
