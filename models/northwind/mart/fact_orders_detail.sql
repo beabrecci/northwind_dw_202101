@@ -64,7 +64,7 @@ with
 
         order_details as (
         select
-        employees_sk
+        employee_sk
         ,employee_id
         ,order_id
         ,first_name

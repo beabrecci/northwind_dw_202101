@@ -53,7 +53,7 @@ with
 
          employees as (
         select
-        employees_sk
+        employee_sk
         ,employee_id
         ,first_name
         ,title
