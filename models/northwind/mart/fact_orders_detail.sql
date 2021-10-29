@@ -7,6 +7,7 @@ with
         , customer_id
         from {{ ref('dim_customers') }}
     ),
+    
 
     products as (
         select
